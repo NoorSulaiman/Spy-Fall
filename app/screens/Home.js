@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, Text } from 'react-native';
+import { StatusBar, KeyboardAvoidingView } from 'react-native';
 import { Font } from 'expo';
 
 import Container from '../components/Container/Container';
@@ -20,22 +20,26 @@ class Home extends Component {
 
   handleTextChange = text => this.setState({ name: text });
 
-  handleCreateGame = () => this.props.openConnection(this.state.name);
+  handleCreateGame = () => console.log('onCreateGame');
 
-  hanldeJoinGame = () => this.props.openConnection(this.state.name);
+  hanldeJoinGame = () => console.log('on Join Game');
+
+  handleOptionPress = () => console.log('on option press');
 
   render() {
     const { fontLoaded } = this.state;
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
-        <Header />
-        {fontLoaded && <Logo />}
-        <CreateGameForm
-          onCreateGamePress={this.handleCreateGame}
-          onJoinGamePress={this.hanldeJoinGame}
-          onChangeText={this.handleTextChange}
-        />
+        <Header onPress={this.handleOptionPress} />
+        <KeyboardAvoidingView style={{ width: '90%' }} behavior="position">
+          {fontLoaded && <Logo />}
+          <CreateGameForm
+            onCreateGamePress={this.handleCreateGame}
+            onJoinGamePress={this.hanldeJoinGame}
+            onChangeText={this.handleTextChange}
+          />
+        </KeyboardAvoidingView>
       </Container>
     );
   }

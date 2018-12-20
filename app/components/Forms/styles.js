@@ -5,9 +5,7 @@ const BORDER_RADIUS = 4;
 
 const styles = EStyleSheet.create({
   container: {
-    marginTop: 10,
-    flexDirection: 'column',
-    width: '90%'
+    marginTop: 10
   },
   input: {
     backgroundColor: '$white',

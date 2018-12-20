@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, StatusBar } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 const imageWidth = Dimensions.get('window').width / 11;
@@ -9,7 +9,12 @@ const styles = EStyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-    '@media ios': { paddingTop: 20 }
+    '@media ios': {
+      paddingTop: 20
+    },
+    '@media android': {
+      paddingTop: StatusBar.currentHeight
+    }
   },
   button: {
     alignSelf: 'flex-end',

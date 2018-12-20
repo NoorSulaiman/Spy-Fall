@@ -4,6 +4,8 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 const imageWidth = Dimensions.get('window').width / 1.6;
 
 const styles = EStyleSheet.create({
+  $largeImageSize: imageWidth,
+  $smallImageSize: imageWidth / 2,
   container: {
     alignItems: 'center'
   },
