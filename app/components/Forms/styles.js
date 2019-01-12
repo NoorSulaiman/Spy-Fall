@@ -4,6 +4,9 @@ const INPUT_HEIGHT = 48;
 const BORDER_RADIUS = 4;
 
 const styles = EStyleSheet.create({
+  buttonsContainer: {
+    justifyContent: 'space-between'
+  },
   container: {
     marginTop: 10
   },

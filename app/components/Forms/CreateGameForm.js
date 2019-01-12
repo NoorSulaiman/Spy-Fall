@@ -6,17 +6,20 @@ import {
 import styles from './styles';
 
 const CreateGameForm = (props) => {
-  const { onChangeText, onCreateGamePress, onJoinGamePress } = props;
+  const {
+    onChangeText, onCreateGamePress, onJoinGamePress, width, direction
+  } = props;
   return (
     <View style={styles.container}>
       <TextInput onChangeText={onChangeText} style={styles.input} placeholder="Pick a cool name!" />
-
-      <TouchableOpacity style={styles.button} onPress={onCreateGamePress}>
-        <Text style={styles.buttonText}>Create Game</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={onJoinGamePress}>
-        <Text style={styles.buttonText}>Join a Game!</Text>
-      </TouchableOpacity>
+      <View style={[styles.buttonsContainer, { flexDirection: direction }]}>
+        <TouchableOpacity style={[styles.button, { width }]} onPress={onCreateGamePress}>
+          <Text style={styles.buttonText}>Create Game</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, { width }]} onPress={onJoinGamePress}>
+          <Text style={styles.buttonText}>Join a Game!</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

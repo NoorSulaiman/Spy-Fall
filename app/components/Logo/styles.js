@@ -20,7 +20,6 @@ const styles = EStyleSheet.create({
     fontWeight: '600',
     fontSize: 50,
     marginTop: 15,
-    marginBottom: 45,
     color: '$white',
     fontFamily: 'asman'
   }

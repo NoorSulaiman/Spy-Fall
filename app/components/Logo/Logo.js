@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {
-  View, Text, Image, Keyboard
+  View, Text, Animated, Keyboard
 } from 'react-native';
 import styles from './styles';
 
 class Logo extends Component {
   constructor(props) {
     super(props);
+    this.imageWidth = new Animated.Value(styles.$largeImageSize);
   }
 
   componentDidMount() {
@@ -20,18 +21,26 @@ class Logo extends Component {
   }
 
   keyboardShow = () => {
-    console.log('keboard did show');
+    Animated.timing(this.imageWidth, {
+      toValue: styles.$smallImageSize,
+      duration: 250
+    }).start();
   };
 
   keyboardHide = () => {
-    console.log('keyboard did hide');
+    Animated.timing(this.imageWidth, {
+      toValue: styles.$largeImageSize,
+      duration: 250
+    }).start();
   };
 
   render() {
+    const imageStyles = [styles.logoImage, { width: this.imageWidth, height: this.imageWidth }];
+    const { marginBottom } = this.props;
     return (
       <View style={styles.container}>
-        <Image style={styles.logoImage} source={require('../../images/logo.png')} />
-        <Text style={styles.text}>SPY FALL</Text>
+        <Animated.Image style={imageStyles} source={require('../../images/logo.png')} />
+        <Text style={[styles.text, { marginBottom }]}>SPY FALL</Text>
       </View>
     );
   }
